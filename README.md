@@ -2,7 +2,7 @@
 一键部署gensyn脚本
 <h2 align=center>Gensyn Testnet Node Guide</h2>
 
-## 💻 System Requirements
+## 💻 系统要求
 
 | Requirement                         | Details                                                     |
 |-------------------------------------|-------------------------------------------------------------|
@@ -50,6 +50,7 @@ ssh -p 69 root@69.69.69.69
 ```
 
 📥 安装流程
+```bash
 安装sudo权限
 apt update && apt install -y sudo
 安装系统依赖
@@ -60,7 +61,7 @@ curl -sSL https://raw.githubusercontent.com/zunxbt/installation/main/node.sh | b
 screen -S gensyn  # 创建名为gensyn的会话
 启动训练集群
 cd $HOME && rm -rf gensyn-testnet && git clone https://github.com/zunxbt/gensyn-testnet.git && chmod +x gensyn-testnet/gensyn.sh && ./gensyn-testnet/gensyn.sh
-
+```
 当出现以下提示时输入N：
 ![Screenshot 2025-04-01 061641](https://github.com/user-attachments/assets/b5ed9645-16a2-4911-8a73-97e21fdde274)
 
@@ -70,12 +71,12 @@ cd $HOME && rm -rf gensyn-testnet && git clone https://github.com/zunxbt/gensyn-
  ## 🔄️ 备份 `swarm.pem`
 节点运行后，**必须**将远程服务器（GPU/VPS）中的`swarm.pem`文件备份至本地电脑。该文件一旦丢失，所有贡献记录将无法找回。我们提供两种备份方案：
 
-### Method 1 (Very Simple)
+
 ### 方法1（简易备份）
 1. 进入`rl-swarm`目录执行：
 ```bash
 [ -f backup.sh ] && rm backup.sh; curl -sSL -O https://raw.githubusercontent.com/zunxbt/gensyn-testnet/main/backup.sh && chmod +x backup.sh && ./backup.sh
-
+```
 终端将显示备份入口（如下图所示）：
 ![image](https://github.com/user-attachments/assets/489b02a8-40e1-4c91-b29b-9d9c30604e8c)
 
