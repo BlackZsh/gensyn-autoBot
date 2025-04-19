@@ -1,0 +1,72 @@
+废弃用法；
+Bash
+sudo add-apt-repository ppa:deadsnakes/ppa
+sudo apt update
+
+sudo apt install python3.10
+
+步骤3：设置Python 3.10为默认版本
+# 添加Python 3.10到备选列表
+sudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.8 1
+sudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.10 2
+
+# 选择Python 3.10作为默认版本
+sudo update-alternatives --config python3
+执行后选择Python 3.10对应的编号即可。
+python3 --version# 应显示Python 3.10.x
+
+
+使用 alias 命令（临时或用户级配置）
+临时生效：在终端输入：
+
+**alias python=python3**
+永久生效：将别名添加到用户配置文件（如 ~/.bashrc 或 ~/.bash_aliases）：
+
+echo "alias python=python3" >> ~/.bashrc
+source ~/.bashrc  # 立即生效**
+注意：避免将别名添加到 ~/.bashrc 中使用 sudo，否则可能失效
+
+sudo apt install python3.10-venv 
+ubuntu需要单独装venv，否则创不了虚拟环境。
+
+apt update && apt install -y sudo
+
+sudo apt update && sudo apt install -y python3 python3-venv python3-pip curl wget screen git lsof nano unzip vim 
+
+curl -sSL https://raw.githubusercontent.com/zunxbt/installation/main/node.sh | bash
+
+1. **Create a `screen` session**
+
+`screen -S gensyn`
+
+**重点：先执行一半：**
+`cd $HOME && rm -rf gensyn-testnet && git clone https://github.com/zunxbt/gensyn-testnet.git && chmod +x gensyn-testnet/gensyn.sh`
+
+去把官方库拉过来：
+
+git clone https://github.com/gensyn-ai/rl-swarm.git
+
+### **步骤3: 装依赖，改脚本**
+
+**进虚拟环境**下载**官方的**依赖：
+
+python3 -m venv .venv
+创虚拟环境:
+
+source .venv/bin/activate
+
+pip3 install -r requirements.txt 
+
+pip3 install -r requirements_gpu.txt
+
+pip3 install -r requirements-hivmen.txt
+
+deactivate
+
+# 强制重建虚拟环境
+rm -rf .venv
+python3 -m venv .venv
+source .venv/bin/activate
+pip3 install -r  requirements.txt
+pip3 install -r  requirements_gpu.txt
+pip3 install -r  requirements-hivemind.txt
